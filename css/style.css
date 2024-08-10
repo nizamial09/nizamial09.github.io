@@ -8815,6 +8815,47 @@ h1, h2, h3, h4, h5,
     letter-spacing: 3px;
     text-transform: uppercase; }
 
+    .typing-container {
+      display: inline-block; /* Keep the container inline with text */
+      white-space: nowrap;
+      overflow: hidden;
+      font-size: 24px;
+      position: relative; /* Needed for absolute positioning of caret */
+  }
+
+  .typing-container::after {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      border-right: 2px solid #61dafb;
+      animation: blink-caret .75s step-end infinite;
+  }
+  
+  .typing-text {
+      display: inline;
+      border-right: 0.05em solid #ffbd39; /* The typewriter cursor */
+      animation: typing 1s steps(80, end), blink-caret .5s step-end infinite;
+  }
+  
+  @keyframes typing {
+      from {
+          width: 0;
+      }
+      to {
+          width: 100%;
+      }
+  }
+  
+  @keyframes blink-caret {
+      from, to {
+          border-color: transparent;
+      }
+      50% {
+          border-color: #ffbd39;
+      }
+  }
+
 .services-1 {
   margin-bottom: 40px;
   padding: 2em;
